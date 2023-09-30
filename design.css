@@ -1,14 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
 html,
 body {
     width: 100%;
     height: 100%;
     background-color: green;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    text-align: center;
 }
 
 #board {
@@ -33,10 +33,4 @@ body {
     height: 10px;
     margin: 1px;
     color: white;
-}
-
-.testing{
-    position: absolute;
-    bottom: 2%;
-    left: 2%;
 }
