@@ -4,8 +4,10 @@ import { alive_color, dead_color, board_render_size } from "./constants.js";
 // cell id -> cell_<row>.<col>
 
 var alive_cells = new Set();
+var animate_timer;
 var drag_state_on = false;
 var edit_allowed = true;
+var is_animating = false;
 
 function generateBoard(n) {
     let row;
@@ -105,6 +107,17 @@ jQuery(window).on('load', function () {
 
     jQuery("#evolve").click(function () {
         nextState()
+    })
+
+    jQuery("#animate").click(function () {
+        if (is_animating){
+            clearInterval(animate_timer)
+            is_animating = false
+        }
+        else{
+            animate_timer = setInterval(nextState, 100)
+            is_animating = true
+        }
     })
 
 })

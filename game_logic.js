@@ -1,4 +1,4 @@
-import {alive_color, board_render_size, offsets} from './constants.js'
+import {board_render_size, offsets} from './constants.js'
 import {to_cell_id, to_cell} from './board_functions.js'
 
 const board_size = board_render_size + 3;
