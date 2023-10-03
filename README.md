@@ -1,3 +1,5 @@
 # Conway's Game of Life (again)
 
-An interactive page to play around with patterns in Conway's game of Life
+An interactive page to play around with patterns in Conway's game of Life.
+
+Note: set up a live server before running (used a VSCode extension)
