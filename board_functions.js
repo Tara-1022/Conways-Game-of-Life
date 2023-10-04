@@ -37,40 +37,36 @@ export function to_cell(cell_id) {
     return cell_id.slice(5).split(".").map((n) => parseInt(n))
 }
 
-function is_renderable_cell(cell_id){
+function is_renderable_cell(cell_id) {
     let cell = to_cell(cell_id)
-    return (cell[0] < board_render_size) && (cell[1] < board_render_size)
+    return (0 <= cell[0]) &&  (cell[0] < board_render_size) && (0 <= cell[1]) && (cell[1] < board_render_size)
 }
 
 function set_cells(cells, color) {
     let cell_element;
     for (let cell_id of cells) {
-        if (!is_renderable_cell(cell_id)) {
-            continue;
+        if (is_renderable_cell(cell_id)) {
+            cell_element = document.getElementById(cell_id)
+            cell_element.style.backgroundColor = color
         }
-        cell_element = document.getElementById(cell_id)
-        cell_element.style.backgroundColor = color
     }
 }
 
 function set_cell(cell_id, color) {
-    if (!is_renderable_cell(cell_id)) {
-        return;
+    if (is_renderable_cell(cell_id)) {
+        let cell_element = document.getElementById(cell_id)
+        cell_element.style.backgroundColor = color
     }
-    let cell_element = document.getElementById(cell_id)
-    cell_element.style.backgroundColor = color
 }
 
 function toggle_cell(cell_id) {
-    if (!is_renderable_cell(cell_id)) {
-        return;
+    if (is_renderable_cell(cell_id)) {
+        let cell_element = document.getElementById(cell_id)
+        cell_element.style.backgroundColor = (cell_element.style.backgroundColor == alive_color) ? dead_color : alive_color
     }
-    let cell_element = document.getElementById(cell_id)
-    cell_element.style.backgroundColor = (cell_element.style.backgroundColor == alive_color) ? dead_color : alive_color
 }
 
 function nextState() {
-    let cell;
     let now_alive_cells = evolve(alive_cells)
     set_cells(alive_cells, dead_color)
     set_cells(now_alive_cells, alive_color)
@@ -84,7 +80,7 @@ jQuery(window).on('load', function () {
     jQuery(".cell").click(function () {
         if (edit_allowed) {
             let cell_id = jQuery(this).attr("id")
-            alive_cells.has(cell_id)? alive_cells.delete(cell_id) : alive_cells.add(cell_id)
+            alive_cells.has(cell_id) ? alive_cells.delete(cell_id) : alive_cells.add(cell_id)
             toggle_cell(jQuery(this).attr("id"))
         }
     })
@@ -100,7 +96,7 @@ jQuery(window).on('load', function () {
     jQuery(".cell").mouseenter(function () {
         if (edit_allowed && drag_state_on) {
             let cell_id = jQuery(this).attr("id")
-            alive_cells.has(cell_id)? alive_cells.delete(cell_id) : alive_cells.add(cell_id)
+            alive_cells.has(cell_id) ? alive_cells.delete(cell_id) : alive_cells.add(cell_id)
             toggle_cell(jQuery(this).attr("id"))
         }
     })
@@ -110,11 +106,11 @@ jQuery(window).on('load', function () {
     })
 
     jQuery("#animate").click(function () {
-        if (is_animating){
+        if (is_animating) {
             clearInterval(animate_timer)
             is_animating = false
         }
-        else{
+        else {
             animate_timer = setInterval(nextState, 100)
             is_animating = true
         }
