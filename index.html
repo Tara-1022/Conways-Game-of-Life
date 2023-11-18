@@ -4,30 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoL</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+    <title>Conway's Game of Life</title>
+    <script src="jquery.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <div id="game_components">
-        <div id="board">
-        </div>
-        <div id="buttonboard">
-            <button id="evolve">Evolve</button>
-            <button id="animate">Animate</button>
-            <button id="reset">Reset</button>
-            <button id="export">Export</button>
-            <button id="import">Import</button>
-            <select name="choose_state" id="choose_state">
-            </select>
-            <button id="load">Load</button>
-        </div>
+    <div id="board">
     </div>
-    <script type="module" src="scripts/main.js"></script>
-    <script type="module" src="scripts/cell_functions.js"></script>
-    <script type="module" src="scripts/conway_functions.js"></script>
+
+    <table id="buttonboard">
+        <tr>
+            <td>
+                <button id="evolve">Evolve</button>
+            </td>
+            <td>
+                <button id="animate">Animate</button>
+            </td>
+            <td>
+                <label for="animate">
+                    <img id='play' src="./images/play.png">
+                    <img id="pause" src="./images/pause.png" hidden>
+                </label>
+            </td>
+            <td>
+                <select name="choose_state" id="choose_state">
+                </select>
+            </td>
+            <td>
+                <button id="load">Load</button>
+            </td>
+            <td>
+                <button id="export">Export</button>
+            </td>
+            <td>
+                <button id="import">Import</button>
+            </td>
+            <td>
+                <button id="reset">Reset</button>
+            </td>
+        </tr>
+    </table>
+
+    <div id="popup_background" hidden>
+    </div>
+    <div class="popup" id="import_popup" hidden>
+        <span>Importing will lose your current game state!</span>
+        <br><br>
+        <textarea id="import_state" cols="30" rows="10" placeholder="Paste your exported game state"></textarea>
+        <br><br>
+        <button id="import_load">Import</button>
+        <button class="back">Back</button>
+    </div>
+    <div class="popup" id="export_popup" hidden>
+        <span>Copy and save your game state</span>
+        <br><br>
+        <textarea id="export_state" cols="30" rows="10" readonly></textarea>
+        <br><br>
+        <button class="back">Back</button>
+    </div>
+
 </body>
 
 </html>

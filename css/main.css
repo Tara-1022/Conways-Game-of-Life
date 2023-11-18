@@ -11,31 +11,55 @@ body {
     background-color: #065b06;
 }
 
-#buttonboard{
+#buttonboard {
     position: absolute;
-    right: 45%;
+    bottom: 25px;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(0%);
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
 }
 
-#buttonboard button {
-    background-color: rgb(0, 0, 0);
-    color: rgb(173, 173, 173);
-    border: 1px solid gray;
-    width: 55px;
-    height: 25px;
-    margin: 10px;
-    display: block;
-}
-
-#buttonboard button:hover{
+#buttonboard button:hover {
     background-color: yellow;
     color: rgb(57, 57, 57);
 }
 
+#buttonboard img{
+    width: 35px;
+    height: 35px;
+    margin-top: 2.5px;
+    position: relative;
+    left: -10px;
+}
+
+#buttonboard select{
+    background-color: rgb(173, 173, 173);
+    color: black;
+    width: 75px;
+    height: 20px;
+    border-radius: 2px;
+    font-size: small;
+}
+
+button {
+    background-color: rgb(0, 0, 0);
+    color: rgb(173, 173, 173);
+    border: 1px solid gray;
+    width: 65px;
+    height: 35px;
+    margin: 5px;
+    display: inline-block;
+}
+
 #board {
     position: absolute;
-    top: 5%;
-    left: 5%;
-    background-color:#686767;
+    background-color: #686767;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-55%);
+    -webkit-transform: translate(-50%, -55%);
+    transform: translate(-50%, -55%);
 }
 
 .row {
@@ -50,4 +74,35 @@ body {
     height: 10px;
     margin: 1px;
     color: white;
+}
+
+#popup_background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.25;
+    z-index: 15;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    border: solid  #065b06 5px;
+    border-radius: 12px;
+    position: absolute;
+    padding: 20px;
+    width: 335px;
+    z-index: 20;
+}
+
+.popup button{
+    display: inline-block;
+    margin: auto;
 }
