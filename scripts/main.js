@@ -31,6 +31,13 @@ function generateBoard(n) {
     }
 }
 
+function set_min_board_size(){
+    let cell_size = 12;
+    let min_size = (board_render_size * cell_size) + 'px'
+    jQuery('#board').css('min_width', min_size).css('width', 'auto !important').css('width', min_size)
+    jQuery('#board').css('min_height', min_size).css('height', 'auto !important').css('height', min_size)
+}
+
 function load_options() {
     let state_names = load_state_names()
     Object.keys(state_names).forEach(name => {
@@ -45,9 +52,20 @@ function nextState() {
     alive_cells = now_alive_cells
 }
 
+function start_animating(){
+    animate_timer = setInterval(nextState, 100)
+    is_animating = true
+}
+
+function stop_animating(){
+    clearInterval(animate_timer)
+    is_animating = false
+}
+
 jQuery(window).on('load', function () {
     generateBoard(board_render_size);
     load_options();
+    set_min_board_size()
 
     jQuery(".cell").click(function () {
         if (edit_allowed) {
@@ -78,14 +96,8 @@ jQuery(window).on('load', function () {
     })
 
     jQuery("#animate").click(function () {
-        if (is_animating) {
-            clearInterval(animate_timer)
-            is_animating = false
-        }
-        else {
-            animate_timer = setInterval(nextState, 100)
-            is_animating = true
-        }
+        if (is_animating)   stop_animating();
+        else                start_animating();
     })
 
     jQuery('#reset').click(function () {
