@@ -8,7 +8,7 @@ html,
 body {
     width: 100%;
     height: 100%;
-    background-color: green;
+    background-color: #065b06;
 }
 
 #buttonboard{
@@ -35,7 +35,7 @@ body {
     position: absolute;
     top: 5%;
     left: 5%;
-    background-color:darkgrey;
+    background-color:#686767;
 }
 
 .row {

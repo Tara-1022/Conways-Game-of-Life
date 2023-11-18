@@ -12,8 +12,15 @@ function deserialize_set(str) {
         .map((n) => ('cell_' + n)))
 }
 
-function load_state(state){
-    return deserialize_set(states[state])
+function load_state(name){
+    return deserialize_set(states[name].state)
 }
 
-export { serialize_set, deserialize_set, load_state }
+function load_state_names(){
+    var state_names = {}
+    Object.keys(states).forEach(name =>{
+        state_names[name] = states[name].disp
+    })
+    return state_names
+}
+export { serialize_set, deserialize_set, load_state, load_state_names }

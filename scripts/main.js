@@ -1,7 +1,7 @@
 import { evolve } from "./conway_functions.js";
 import { alive_color, dead_color, board_render_size } from "./constants.js";
-import {to_cell_id, to_cell, is_renderable_cell, set_cells, set_cell, toggle_cell} from './cell_functions.js'
-import { serialize_set, deserialize_set, load_state } from "./import_export.js";
+import { to_cell_id, to_cell, is_renderable_cell, set_cells, set_cell, toggle_cell } from './cell_functions.js'
+import { serialize_set, deserialize_set, load_state, load_state_names } from "./import_export.js";
 // row id -> row_<ind>
 // cell id -> cell_<row>.<col>
 
@@ -31,6 +31,13 @@ function generateBoard(n) {
     }
 }
 
+function load_options() {
+    let state_names = load_state_names()
+    Object.keys(state_names).forEach(name => {
+        jQuery('#choose_state').append("<option value='" + name + "'>" + state_names[name] + "</option>")
+    });
+}
+
 function nextState() {
     let now_alive_cells = evolve(alive_cells)
     set_cells(alive_cells, dead_color)
@@ -40,6 +47,7 @@ function nextState() {
 
 jQuery(window).on('load', function () {
     generateBoard(board_render_size);
+    load_options();
 
     jQuery(".cell").click(function () {
         if (edit_allowed) {
@@ -80,21 +88,21 @@ jQuery(window).on('load', function () {
         }
     })
 
-    jQuery('#reset').click(function(){
+    jQuery('#reset').click(function () {
         set_cells(alive_cells, dead_color)
         alive_cells = new Set()
     })
 
-    jQuery('#export').click(function(){
+    jQuery('#export').click(function () {
         alert('Copy game state:' + serialize_set(alive_cells))
         // TODO: pop-up to copy from
     })
 
-    jQuery('#import').click(function(){
+    jQuery('#import').click(function () {
         // TODO: implement text box like adarkroom.doublespeakgames.com
     })
 
-    jQuery('#load').click(function(){
+    jQuery('#load').click(function () {
         set_cells(alive_cells, dead_color)
         alive_cells = load_state(jQuery('#choose_state').val())
         set_cells(alive_cells, alive_color)
