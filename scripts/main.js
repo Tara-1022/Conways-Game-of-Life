@@ -1,6 +1,7 @@
 import { evolve } from "./conway_functions.js";
 import { alive_color, dead_color, board_render_size } from "./constants.js";
 import {to_cell_id, to_cell, is_renderable_cell, set_cells, set_cell, toggle_cell} from './cell_functions.js'
+import { serialize_set, deserialize_set, load_state } from "./import_export.js";
 // row id -> row_<ind>
 // cell id -> cell_<row>.<col>
 
@@ -77,6 +78,26 @@ jQuery(window).on('load', function () {
             animate_timer = setInterval(nextState, 100)
             is_animating = true
         }
+    })
+
+    jQuery('#reset').click(function(){
+        set_cells(alive_cells, dead_color)
+        alive_cells = new Set()
+    })
+
+    jQuery('#export').click(function(){
+        alert('Copy game state:' + serialize_set(alive_cells))
+        // TODO: pop-up to copy from
+    })
+
+    jQuery('#import').click(function(){
+        // TODO: implement text box like adarkroom.doublespeakgames.com
+    })
+
+    jQuery('#load').click(function(){
+        set_cells(alive_cells, dead_color)
+        alive_cells = load_state(jQuery('#choose_state').val())
+        set_cells(alive_cells, alive_color)
     })
 
 })

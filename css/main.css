@@ -11,14 +11,31 @@ body {
     background-color: green;
 }
 
+#buttonboard{
+    position: absolute;
+    right: 45%;
+}
+
+#buttonboard button {
+    background-color: rgb(0, 0, 0);
+    color: rgb(173, 173, 173);
+    border: 1px solid gray;
+    width: 55px;
+    height: 25px;
+    margin: 10px;
+    display: block;
+}
+
+#buttonboard button:hover{
+    background-color: yellow;
+    color: rgb(57, 57, 57);
+}
+
 #board {
     position: absolute;
     top: 5%;
     left: 5%;
-    width: fit-content;
-    align-self: center;
     background-color:darkgrey;
-    overflow: hidden;
 }
 
 .row {
