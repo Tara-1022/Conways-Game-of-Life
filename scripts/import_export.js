@@ -1,4 +1,4 @@
-import {states} from '../data.js'
+import {states} from './data.js'
 
 function serialize_set(set) {
     return JSON.stringify(
