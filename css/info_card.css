@@ -1,0 +1,55 @@
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+#info_card {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    opacity: 0.75;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    overflow-y: hidden;
+}
+
+#info_card_text {
+    height: 100%;
+    text-align: start;
+    font-size: 17px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+#info_card_text li {
+    text-align: start;
+}
+
+#info_card_block {
+    position: relative;
+    width: 30px;
+    height: 100%;
+    float: right;
+    border-left: 1px dotted white;
+    padding: 0;
+}
+
+#info_card_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    border: 0;
+    font-size: 25px;
+    font-weight: bolder;
+    background-color: transparent;
+    margin: 0;
+}
+
+#info_card a {
+    text-decoration: none;
+    color: white;
+}

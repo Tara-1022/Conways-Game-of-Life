@@ -1,0 +1,30 @@
+#popup_background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.25;
+    z-index: 15;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    border: solid  #065b06 5px;
+    border-radius: 12px;
+    position: absolute;
+    padding: 20px;
+    width: 335px;
+    z-index: 20;
+}
+
+.popup button{
+    display: inline-block;
+    margin: auto;
+}

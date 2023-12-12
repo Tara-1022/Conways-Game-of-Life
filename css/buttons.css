@@ -1,0 +1,40 @@
+#buttonboard {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(0%);
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+#buttonboard button:hover {
+    background-color: yellow;
+    color: rgb(57, 57, 57);
+}
+
+#buttonboard img{
+    width: 35px;
+    height: 35px;
+    margin-top: 2.5px;
+    position: relative;
+    left: -10px;
+}
+
+#buttonboard select{
+    background-color: rgb(173, 173, 173);
+    color: black;
+    width: 75px;
+    height: 20px;
+    border-radius: 2px;
+    font-size: small;
+}
+
+button {
+    background-color: rgb(0, 0, 0);
+    color: rgb(173, 173, 173);
+    border: 1px solid gray;
+    width: 65px;
+    height: 35px;
+    margin: 5px;
+    display: inline-block;
+}
