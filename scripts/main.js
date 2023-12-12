@@ -67,6 +67,17 @@ jQuery(window).on('load', function () {
     })
 
     // buttons
+    jQuery('#info_card_button').click(() => {
+        if (jQuery('#info_card_button').text() == '<') {
+            jQuery('#info_card').animate({ width: '30px' })
+            jQuery('#info_card_button').text('>')
+        }
+        else {
+            jQuery('#info_card').animate({ width: '50%' })
+            jQuery('#info_card_button').text('<')
+        }
+    })
+
     jQuery("#evolve").click(() => nextState())
 
     jQuery("#animate").click(function () {

@@ -8,9 +8,63 @@
     <script src="./scripts/jquery.min.js"></script>
     <script type="module" src="scripts/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/info_card.css">
 </head>
 
 <body>
+    <div id="info_card">
+
+        <div id="info_card_block">
+            <button id="info_card_button">
+                < </button>
+        </div>
+
+        <div id="info_card_text">
+            <h1 style="text-align: center;">
+                <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game
+                    of Life</a>
+            </h1>
+            <br>
+            In 1968, John Conway, a brilliant English Mathematician, invented a new 'game' using
+            pieces of a Go board. This was not by accident; he was inspired by Von Neumann's work on cellular
+            automata, and
+            was playing around with different automata rules in an attempt to create a 'universal', two-dimensional
+            cellular automaton.
+            <br><br>
+            These are infinite grids of cells, with certain rules applied to how they evolve.
+            <br><br>
+            It doesn't have to be complicated.<br>
+            All you really have to do is create patterns and click 'Animate'. You could also load a pattern by choosing from the drop-down menu.
+            <br>
+            A tweak - you're allowed to meddle with cells while the universe evolves (just because it's fun).
+            <br>
+            <br>
+            Conway's Game of Life could be descibed as a recreational mathematical game.<br>
+            Perhaps not in the usual sense - this is a zero-player game, which means that you're only responsible
+            for setting up the initial state of the universe.
+            <br>
+            <br>
+            The rules?
+            <ul>
+                <li> - A live cell dies if it has less than 2 live neighbours</li>
+                <li> - A live cell stays alive if it has 2 or 3 live neighbours</li>
+                <li> - A dead cell with exactly 3 live neighbours becomes alive</li>
+            </ul>
+            <br>
+            Of course, in our board, the live cells are yellow and the dead ones black. These rules, when applied to any
+            given state, create a new state of the universe. It's quite allegorical to births and deaths of regular
+            living cells!
+            <br><br>
+            Interestingly, cellular automata following Conway's rules are Turing Complete. This means that you could simulate any computer using the Game of life
+            - as long as you're willing to sacrifice speed, efficiency and practicality.(
+            <a href="https://hackaday.com/2020/11/21/a-computer-in-the-game-of-life/" style="text-decoration: underline;">This has actually been done!</a>)
+            <br><br><br><br><br>
+        </div>
+
+    </div>
+
     <div id="board">
     </div>
 
